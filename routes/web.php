@@ -31,4 +31,7 @@ Route::put('/products/{id}', [ProductController::class, 'update'])->name('produc
 Route::delete('/{id}/delete', [UserController::class, 'destroy'])->name('cerrar-sesion');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
 
+
+
+
 require __DIR__.'/auth.php';

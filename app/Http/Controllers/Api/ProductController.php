@@ -15,7 +15,7 @@ class ProductController extends Controller
     {
         //
         $products = Product::all();
-        return response()->json($products, 200);
+        return response()->json($products, 200); 
     }
 
     /**
@@ -25,22 +25,25 @@ class ProductController extends Controller
     {
         //
         Product::create([
-            'name' => $request->input('name'),
-            'brand' => $request->input('brand'),
-            'color' => $request->input('color'),
-            'size' => $request->input('size'),
-            'price' => $request->input('price'),
+            'name' => $request->name,
+            'brand' => $request->brand,
+            'color' => $request->color,
+            'size' => $request->size,
+            'price' => $request->price,
+            'categoria_id' => $request->categoria_id
         ]);
 
         return response()->json("Producto registrado", 200);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
+    
     public function show(string $id)
     {
-        //
+
+        $product = Product::find($id);
+        return response()->json($product, 200);
+
     }
 
     /**
